@@ -29,7 +29,7 @@ return [
 	            'location' => 'bottom',
 	            'src' => [
 	            	// Đường dẫn tới thư viện
-	            	'local' => asset('/assets/css/style.min.css'),
+	            	'local' => '/assets/css/style.min.css',
 	            	'cdn' => null,
 	            ],
 	            // Các thuộc tính bổ sung, nếu cần
@@ -46,7 +46,7 @@ return [
 	            'location' => 'bottom',
 	            'src' => [
 	            	// Đường dẫn tới thư viện
-	            	'local' => asset('/assets/js/main.min.js'),
+	            	'local' => '/assets/js/main.min.js',
 	            	'cdn' => null,
 	            ],
 	            // Các thuộc tính bổ sung, nếu cần
@@ -58,7 +58,7 @@ return [
 	        	'use_cdn' => false,
 	        	'location' => 'top',
 	        	'src' => [
-	            	'local' => asset('/assets/js/functions.min.js'),
+	            	'local' => '/assets/js/functions.min.js',
 	            	'cdn' => null,
 	            ],
 	            'attributes' => [],
