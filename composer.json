@@ -22,7 +22,7 @@
                 "Sudo\\Asset\\Providers\\AssetServiceProvider"
             ],
             "aliases": {
-                "Asset": "Sudo\\Asset\\Facades\\Asset",
+                "Asset": "Sudo\\Asset\\Facades\\AssetFacade"
             }
         }
     }
