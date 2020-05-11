@@ -19,16 +19,17 @@ class Asset {
 	function __construct()
 	{
 		$this->config = config('SudoAsset');
+
+		$this->addDefault('styles');
+		$this->addDefault('scripts');
 	}
 
 	// Lấy toàn bộ style và đưa vào mảng
 	public function getStyles() {
-		$this->addDefault('styles');
 		return $this->styles;
 	}
 
 	public function getScripts() {
-		$this->addDefault('scripts');
 		return $this->scripts;
 	}
 
@@ -58,7 +59,7 @@ class Asset {
 
 	/**
 	 * Nhận key scripts truyền vào
-	 * @param string or array 	$assets: key assets truyền vào, lấy key tại config SudoAsset.resources.styles
+	 * @param string or array 	$assets: key assets truyền vào, lấy key tại config SudoAsset.resources.scripts
 	 * @return $this
 	 */
 	public function addScript($assets) {
@@ -113,6 +114,38 @@ class Asset {
 				$this->addStyle($value);
 			} else if ($asset_type == 'scripts') {
 				$this->addScript($value);
+			}
+		}
+		return $this;
+	}
+
+	/**
+	 * Xóa toàn bộ style theo resource key
+	 * @param string or array 	$assets: key assets truyền vào, lấy key tại config SudoAsset.resources.styles
+	 * @return $this
+	 */
+	public function removeStyle($assets) {
+		foreach ((array)$assets as $value) {
+			foreach ($this->styles as $key => $style) {
+				if ($value == $style['key']) {
+					unset($this->styles[$key]);
+				}
+			}
+		}
+		return $this;
+	}
+
+	/**
+	 * Xóa toàn bộ script theo resource key
+	 * @param string or array 	$assets: key assets truyền vào, lấy key tại config SudoAsset.resources.scripts
+	 * @return $this
+	 */
+	public function removeScript($assets) {
+		foreach ((array)$assets as $value) {
+			foreach ($this->scripts as $key => $style) {
+				if ($value == $style['key']) {
+					unset($this->scripts[$key]);
+				}
 			}
 		}
 		return $this;
@@ -176,7 +209,11 @@ class Asset {
 				foreach ($value['attributes'] as $key => $attr) {
 					$str .= $key.'="'.$attr.'" ';
 				}
-				$str .= 'src="'.url('/').$value['src'].'"';
+				$str .= 'href="'.url('/').$value['src'];
+				if ($this->config['enable_version'] == true && !empty($this->config['vesion']) ) {
+					$str .= '?v='.$this->config['vesion'];
+				}
+				$str .= '"';
 				$str .= '>';
 			}
 		}
@@ -198,7 +235,11 @@ class Asset {
 				foreach ($value['attributes'] as $key => $attr) {
 					$str .= $key.'="'.$attr.'" ';
 				}
-				$str .= 'src="'.url('/').$value['src'].'"';
+				$str .= 'src="'.url('/').$value['src'];
+				if ($this->config['enable_version'] == true && !empty($this->config['vesion']) ) {
+					$str .= '?v='.$this->config['vesion'];
+				}
+				$str .= '"';
 				$str .= '></script>';
 			}
 		}
