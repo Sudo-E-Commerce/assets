@@ -85,20 +85,21 @@ class AssetServiceProvider extends ServiceProvider
     public function publish()
     {
         if ($this->app->runningInConsole()) {
-            // Chạy riêng asset
-            $this->publishes([
+            $assets = [
+                //
+            ];
+            $config = [
                 __DIR__.'/../../config/SudoAsset.php' => config_path('SudoAsset.php'),
-            ], 'sudo/asset');
-            $this->publishes([
-                __DIR__.'/../../config/SudoAsset.php' => config_path('SudoAsset.php'),
-            ], 'sudo/asset/config');
+            ];
+            $all = array_merge($assets, $config);
+            // Chạy riêng
+            $this->publishes($all, 'sudo/asset');
+            $this->publishes($assets, 'sudo/asset/assets');
+            $this->publishes($config, 'sudo/asset/config');
             // Khởi chạy chung theo core
-            $this->publishes([
-                __DIR__.'/../../config/SudoAsset.php' => config_path('SudoAsset.php'),
-            ], 'sudo/core');
-            $this->publishes([
-                __DIR__.'/../../config/SudoAsset.php' => config_path('SudoAsset.php'),
-            ], 'sudo/core/config');
+            $this->publishes($all, 'sudo/core');
+            $this->publishes($assets, 'sudo/core/assets');
+            $this->publishes($config, 'sudo/core/config');
         }
     }
 
