@@ -209,7 +209,7 @@ class Asset {
 				foreach ($value['attributes'] as $key => $attr) {
 					$str .= $key.'="'.$attr.'" ';
 				}
-				$str .= 'href="'.url('/').$value['src'];
+				$str .= 'href="'.$value['src'];
 				if ($this->config['enable_version'] == true && !empty($this->config['vesion']) ) {
 					$str .= '?v='.$this->config['vesion'];
 				}
@@ -235,7 +235,7 @@ class Asset {
 				foreach ($value['attributes'] as $key => $attr) {
 					$str .= $key.'="'.$attr.'" ';
 				}
-				$str .= 'src="'.url('/').$value['src'];
+				$str .= 'src="'.$value['src'];
 				if ($this->config['enable_version'] == true && !empty($this->config['vesion']) ) {
 					$str .= '?v='.$this->config['vesion'];
 				}
