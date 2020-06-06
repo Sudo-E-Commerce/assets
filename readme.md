@@ -32,7 +32,7 @@ Mặc định khi chạy lệnh `php artisan sudo/core` đã sinh luôn cho pack
 
 	return [
 	    // Mặc định sẽ là true, assets sẽ được load từ local, 
-		// Nếu set offline là false và resource có định nghĩa use_cdn là true thì assets sẽ được load từ cdn
+	    // Nếu set offline là false và resource có định nghĩa use_cdn là true thì assets sẽ được load từ cdn
 	    'offline' => env('ASSETS_OFFLINE', true),
 	
 	    // Bật hiển thị version, lúc này link tới resource sẽ được nối thêm "?v=1.0" chẳng hạn.
@@ -78,20 +78,20 @@ Mặc định khi chạy lệnh `php artisan sudo/core` đã sinh luôn cho pack
 	        // Định nghĩa các thư viện js
 	        'scripts' => [
 	            'jquery' => [
-			// Có cho phép sử dụng cdn hay không, nếu là true thì phải định nghĩa link tới cnd bên dưới
-	                'use_cdn' => false,
-			// Vị trí chèn trên header hay dưới footer lần lượt là top, bottom
-	                'location' => 'top',
-			// Đường dẫn tới thư viện
-	                'src' => [
-			    // Đường dẫn local
-	                    'local' => '/assets/libs/jquery/jquery.min.js',
-			    // Đường dẫn cdn
-	                    'cdn' => null,
-	                ],
-			// Thuộc tính của thẻ theo dạng [ key => value, key2 => value2 ]
-			// VD: "async" => "" thì thẻ link sẽ có thêm thuộc tính "async"
-	                'attributes' => [],
+			    // Có cho phép sử dụng cdn hay không, nếu là true thì phải định nghĩa link tới cnd bên dưới
+	                   'use_cdn' => false,
+			    // Vị trí chèn trên header hay dưới footer lần lượt là top, bottom
+	                    'location' => 'top',
+			    // Đường dẫn tới thư viện
+	                   'src' => [
+			    	// Đường dẫn local
+	                    	'local' => '/assets/libs/jquery/jquery.min.js',
+			    	// Đường dẫn cdn
+	                    	'cdn' => null,
+	                    ],
+			    // Thuộc tính của thẻ theo dạng [ key => value, key2 => value2 ]
+			   // VD: "async" => "" thì thẻ link sẽ có thêm thuộc tính "async"
+	                   'attributes' => [],
 	            ],
 	        ],
 	    ],
