@@ -99,7 +99,7 @@ Mặc định khi chạy lệnh `php artisan sudo/core` đã sinh luôn cho pack
 
 **Một số hàm hỗ trợ sẵn:**
 
-Ngoài việc định nghĩa assets trong file config/assets.php, chúng ta còn có thể thêm js, css trực tiếp từ controller:
+Ngoài việc định nghĩa assets trong file config/assets.php, chúng ta còn có thể thêm/bỏ js, css trực tiếp từ controller:
 
 	public function show()
 	{
