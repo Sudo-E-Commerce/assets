@@ -56,41 +56,41 @@ Mặc định khi chạy lệnh `php artisan sudo/core` đã sinh luôn cho pack
 	    	// Định nghĩa các thư viện css
 	    	'styles' => [
 	            'style' => [
-					// Có cho phép sử dụng cdn hay không, nếu là true thì phải định nghĩa link tới cnd bên dưới
+			    // Có cho phép sử dụng cdn hay không, nếu là true thì phải định nghĩa link tới cnd bên dưới
 		            'use_cdn' => false,
-					// Vị trí chèn trên header hay dưới footer lần lượt là top, bottom
+			    // Vị trí chèn trên header hay dưới footer lần lượt là top, bottom
 		            'location' => 'top',
-					// Đường dẫn tới thư viện
+			    // Đường dẫn tới thư viện
 		            'src' => [
-						// Đường dẫn local
+				// Đường dẫn local
 		            	'local' => '/assets/css/style.min.css',
-						// Đường dẫn cdn
+				// Đường dẫn cdn
 		            	'cdn' => null,
 		            ],
-					// Thuộc tính của thẻ theo dạng [ key => value, key2 => value2 ]
-					// VD: "type" => "text/css" thì thẻ link sẽ có thêm thuộc tính "type=text/css"
+			    // Thuộc tính của thẻ theo dạng [ key => value, key2 => value2 ]
+			    // VD: "type" => "text/css" thì thẻ link sẽ có thêm thuộc tính "type=text/css"
 		            'attributes' => [
-						type" => "text/css"
-					],
+			    	type" => "text/css"
+			    ],
 		        ],
 	        ],
 	
 	        // Định nghĩa các thư viện js
 	        'scripts' => [
 	            'jquery' => [
-					// Có cho phép sử dụng cdn hay không, nếu là true thì phải định nghĩa link tới cnd bên dưới
+			// Có cho phép sử dụng cdn hay không, nếu là true thì phải định nghĩa link tới cnd bên dưới
 	                'use_cdn' => false,
-					// Vị trí chèn trên header hay dưới footer lần lượt là top, bottom
+			// Vị trí chèn trên header hay dưới footer lần lượt là top, bottom
 	                'location' => 'top',
-					// Đường dẫn tới thư viện
+			// Đường dẫn tới thư viện
 	                'src' => [
-						// Đường dẫn local
+			    // Đường dẫn local
 	                    'local' => '/assets/libs/jquery/jquery.min.js',
-						// Đường dẫn cdn
+			    // Đường dẫn cdn
 	                    'cdn' => null,
 	                ],
-					// Thuộc tính của thẻ theo dạng [ key => value, key2 => value2 ]
-					// VD: "async" => "" thì thẻ link sẽ có thêm thuộc tính "async"
+			// Thuộc tính của thẻ theo dạng [ key => value, key2 => value2 ]
+			// VD: "async" => "" thì thẻ link sẽ có thêm thuộc tính "async"
 	                'attributes' => [],
 	            ],
 	        ],
@@ -104,22 +104,22 @@ Ngoài việc định nghĩa assets trong file config/assets.php, chúng ta còn
 	public function show()
 	{
 		\Assets::addStyle(['key-style-su-dung'])
-				->addScript(['key-script-su-dung'])
-				->removeStyle(['key-style-khong-su-dung'])
-				->removeScript(['key-script-khong-su-dung']);
+			->addScript(['key-script-su-dung'])
+			->removeStyle(['key-style-khong-su-dung'])
+			->removeScript(['key-script-khong-su-dung']);
 	}
 
 Thêm assets 1 cách trực tiếp mà không cần phải thêm tại config:
 
 	\Asset::addDirectly([
-		        // đường dẫn đến assets, khuyến khich dùng hàm asset()
-		    ], 'styles', 'top')
-			->addDirectly([
-		        // đường dẫn đến assets, khuyến khich dùng hàm asset()
-		    ], 'styles', 'bottom')
-			->addDirectly([
-		        // đường dẫn đến assets, khuyến khich dùng hàm asset()
-		    ], 'scripts', 'top')
-			->addDirectly([
-		        // đường dẫn đến assets, khuyến khich dùng hàm asset()
-		    ], 'scripts', 'bottom')
+		// đường dẫn đến assets, khuyến khich dùng hàm asset()
+	    ], 'styles', 'top')
+		->addDirectly([
+		// đường dẫn đến assets, khuyến khich dùng hàm asset()
+	    ], 'styles', 'bottom')
+		->addDirectly([
+		// đường dẫn đến assets, khuyến khich dùng hàm asset()
+	    ], 'scripts', 'top')
+		->addDirectly([
+		// đường dẫn đến assets, khuyến khich dùng hàm asset()
+	    ], 'scripts', 'bottom')
